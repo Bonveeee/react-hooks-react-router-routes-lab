@@ -2,13 +2,15 @@ import React from "react";
 import { directors } from "../data";
 
 function Directors() {
-  const director = directors.map((element, index) => {
+  const director = directors.map((director) => {
+    const moviesDirected = director.movies
+
     return (
-      <div key={index}>
-        <h2 style={{fontWeight: 'bold'}}>{element.name}</h2>
+      <div key={director.name}>
+        <h2 style={{fontWeight: 'bold'}}>{director.name}</h2>
         <ul>
-          {element.movies.map((element, index) => {
-            return <li key={index}>{element}</li>;
+          {moviesDirected.map((movie) => {
+            return <li key={movie}>{movie}</li>;
           })}
         </ul>
       </div>
